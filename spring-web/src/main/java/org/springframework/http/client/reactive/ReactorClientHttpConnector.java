@@ -31,8 +31,8 @@ import org.springframework.http.HttpMethod;
  * Reactor-Netty implementation of {@link ClientHttpConnector}.
  *
  * @author Brian Clozel
- * @see HttpClient
  * @since 5.0
+ * @see reactor.ipc.netty.http.client.HttpClient
  */
 public class ReactorClientHttpConnector implements ClientHttpConnector {
 
@@ -48,9 +48,10 @@ public class ReactorClientHttpConnector implements ClientHttpConnector {
 	}
 
 	/**
-	 * Create a Reactor Netty {@link ClientHttpConnector} with the given {@link ClientOptions}
+	 * Create a Reactor Netty {@link ClientHttpConnector} with the given
+	 * {@link HttpClientOptions.Builder}
 	 */
-	public ReactorClientHttpConnector(Consumer<? super HttpClientOptions> clientOptions) {
+	public ReactorClientHttpConnector(Consumer<? super HttpClientOptions.Builder> clientOptions) {
 		this.httpClient = HttpClient.create(clientOptions);
 	}
 
